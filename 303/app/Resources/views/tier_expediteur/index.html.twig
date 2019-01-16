@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tier_expediteurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nationalite</th>
+                <th>Validerenvoi</th>
+                <th>Passwordsender</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tier_Expediteur in tier_Expediteurs %}
+            <tr>
+                <td><a href="{{ path('expediteurs_show', { 'id': tier_Expediteur.id }) }}">{{ tier_Expediteur.id }}</a></td>
+                <td>{{ tier_Expediteur.nationalite }}</td>
+                <td>{% if tier_Expediteur.validerEnvoi %}Yes{% else %}No{% endif %}</td>
+                <td>{{ tier_Expediteur.passwordSender }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('expediteurs_show', { 'id': tier_Expediteur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('expediteurs_edit', { 'id': tier_Expediteur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('expediteurs_new') }}">Create a new tier_Expediteur</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tier_destinataire</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tier_Destinataire.id }}</td>
+            </tr>
+            <tr>
+                <th>Dateretrait</th>
+                <td>{% if tier_Destinataire.dateRetrait %}{{ tier_Destinataire.dateRetrait|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Validerreciever</th>
+                <td>{% if tier_Destinataire.validerReciever %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Passwordretrait</th>
+                <td>{{ tier_Destinataire.passwordRetrait }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('destinataires_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('destinataires_edit', { 'id': tier_Destinataire.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

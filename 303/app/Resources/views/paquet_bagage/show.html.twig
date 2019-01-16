@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Paquet_bagage</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ paquet_Bagage.id }}</td>
+            </tr>
+            <tr>
+                <th>Nature</th>
+                <td>{{ paquet_Bagage.nature }}</td>
+            </tr>
+            <tr>
+                <th>Privatenote</th>
+                <td>{{ paquet_Bagage.privateNote }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('bagages_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('bagages_edit', { 'id': paquet_Bagage.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

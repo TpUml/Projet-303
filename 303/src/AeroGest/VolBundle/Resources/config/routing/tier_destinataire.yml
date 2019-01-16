@@ -1,0 +1,24 @@
+destinataires_index:
+    path:     /
+    defaults: { _controller: "AeroGestVolBundle:Tier_Destinataire:index" }
+    methods:  GET
+
+destinataires_show:
+    path:     /{id}/show
+    defaults: { _controller: "AeroGestVolBundle:Tier_Destinataire:show" }
+    methods:  GET
+
+destinataires_new:
+    path:     /new
+    defaults: { _controller: "AeroGestVolBundle:Tier_Destinataire:new" }
+    methods:  [GET, POST]
+
+destinataires_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AeroGestVolBundle:Tier_Destinataire:edit" }
+    methods:  [GET, POST]
+
+destinataires_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AeroGestVolBundle:Tier_Destinataire:delete" }
+    methods:  DELETE

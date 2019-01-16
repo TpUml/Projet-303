@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tier_expediteur</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tier_Expediteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ tier_Expediteur.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>Validerenvoi</th>
+                <td>{% if tier_Expediteur.validerEnvoi %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Passwordsender</th>
+                <td>{{ tier_Expediteur.passwordSender }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('expediteurs_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('expediteurs_edit', { 'id': tier_Expediteur.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

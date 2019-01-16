@@ -1,0 +1,24 @@
+expediteurs_index:
+    path:     /
+    defaults: { _controller: "AeroGestVolBundle:Tier_Expediteur:index" }
+    methods:  GET
+
+expediteurs_show:
+    path:     /{id}/show
+    defaults: { _controller: "AeroGestVolBundle:Tier_Expediteur:show" }
+    methods:  GET
+
+expediteurs_new:
+    path:     /new
+    defaults: { _controller: "AeroGestVolBundle:Tier_Expediteur:new" }
+    methods:  [GET, POST]
+
+expediteurs_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AeroGestVolBundle:Tier_Expediteur:edit" }
+    methods:  [GET, POST]
+
+expediteurs_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AeroGestVolBundle:Tier_Expediteur:delete" }
+    methods:  DELETE

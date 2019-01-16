@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8" />
+        <title>{% block title %}Bienvenue{% endblock %}</title>
+        {% block stylesheets %}
+            
+        {% endblock %}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/buttons.css') }}" />
+        <link rel="stylesheet" href="{{ asset('vendors/bootstrap/dist/css/bootstrap.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css')}}" />
+        <link href="{{ asset('template/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css' />
+        <link href="{{ asset('template/css/style.css')}}" rel='stylesheet' type='text/css' />
+        <link href="{{ asset('template/css/font-awesome.css')}}" rel="stylesheet"> 
+        <link rel="stylesheet" href="{{ asset('template/css/icon-font.min.css')}}" type='text/css' />
+        <link href="{{ asset('template/css/animate.css" rel="stylesheet')}}" type="text/css" media="all">
+        <link href='//fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <body>
+        <div class="container">
+        {% block body %}{% endblock %}
+        </div>
+        
+        {% block javascripts %}
+            <script src="{{ asset('template/js/jquery-1.10.2.min.js')}}"></script>
+            <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+            <script src="{{ asset('template/js/jquery.nicescroll.js')}}"></script>
+            <script src="{{ asset('template/js/scripts.js')}}"></script>
+            <script src="{{ asset('template/js/bootstrap.min.js')}}"></script>
+            <script src="{{ asset('template/js/Chart.js')}}"></script>
+            <script src="{{ asset('template/js/wow.min.js')}}"></script>
+            <script>new WOW().init();</script>
+        {% endblock %}
+        <div>
+            {% block fos_user_content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

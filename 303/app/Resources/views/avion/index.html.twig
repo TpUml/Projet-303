@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des Avions du Système</h1>
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <table class="table"data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Libelle</th>
+                <th>Modele</th>
+                <th>Nbrplaces</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Etat</th>
+                <th>Statut</th>
+                <th>Isvisible</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+            <tbody>
+        {% for avion in avions %}
+            <tr>
+                <td><a href="{{ path('avion_show', { 'id': avion.id }) }}">{{ avion.id }}</a></td>
+                <td>{{ avion.code }}</td>
+                <td>{{ avion.libelle }}</td>
+                <td>{{ avion.modele }}</td>
+                <td>{{ avion.nbrPlaces }}</td>
+                <td>{% if avion.createdAt %}{{ avion.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if avion.updatedAt %}{{ avion.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ avion.etat }}</td>
+                <td>{{ avion.statut }}</td>
+                <td>{% if avion.isVisible %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('avion_show', { 'id': avion.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('avion_edit', { 'id': avion.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        </div>
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('avion_new') }}">Create a new avion</a>
+        </li>
+    </ul>
+{% endblock %}

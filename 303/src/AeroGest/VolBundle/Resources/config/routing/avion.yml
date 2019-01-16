@@ -1,0 +1,24 @@
+avion_index:
+    path:     /
+    defaults: { _controller: "AeroGestVolBundle:Avion:index" }
+    methods:  GET
+
+avion_show:
+    path:     /{id}/show
+    defaults: { _controller: "AeroGestVolBundle:Avion:show" }
+    methods:  GET
+
+avion_new:
+    path:     /new
+    defaults: { _controller: "AeroGestVolBundle:Avion:new" }
+    methods:  [GET, POST]
+
+avion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AeroGestVolBundle:Avion:edit" }
+    methods:  [GET, POST]
+
+avion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AeroGestVolBundle:Avion:delete" }
+    methods:  DELETE

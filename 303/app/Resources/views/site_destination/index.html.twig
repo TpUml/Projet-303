@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Site_destinations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Ville</th>
+                <th>Statut</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for site_Destination in site_Destinations %}
+            <tr>
+                <td><a href="{{ path('destinations_show', { 'id': site_Destination.id }) }}">{{ site_Destination.id }}</a></td>
+                <td>{{ site_Destination.code }}</td>
+                <td>{{ site_Destination.ville }}</td>
+                <td>{{ site_Destination.statut }}</td>
+                <td>{% if site_Destination.createdAt %}{{ site_Destination.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if site_Destination.updatedAt %}{{ site_Destination.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ site_Destination.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('destinations_show', { 'id': site_Destination.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('destinations_edit', { 'id': site_Destination.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('destinations_new') }}">Create a new site_Destination</a>
+        </li>
+    </ul>
+{% endblock %}

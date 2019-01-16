@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Passager_personnels list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Datenaissance</th>
+                <th>Sexe</th>
+                <th>Description</th>
+                <th>Ville</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for passager_Personnel in passager_Personnels %}
+            <tr>
+                <td><a href="{{ path('personnel_show', { 'id': passager_Personnel.id }) }}">{{ passager_Personnel.id }}</a></td>
+                <td>{{ passager_Personnel.code }}</td>
+                <td>{{ passager_Personnel.nom }}</td>
+                <td>{{ passager_Personnel.prenom }}</td>
+                <td>{% if passager_Personnel.dateNaissance %}{{ passager_Personnel.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ passager_Personnel.sexe }}</td>
+                <td>{{ passager_Personnel.description }}</td>
+                <td>{{ passager_Personnel.ville }}</td>
+                <td>{{ passager_Personnel.email }}</td>
+                <td>{{ passager_Personnel.telephone }}</td>
+                <td>{% if passager_Personnel.createdAt %}{{ passager_Personnel.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if passager_Personnel.updatedAt %}{{ passager_Personnel.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ passager_Personnel.statut }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('personnel_show', { 'id': passager_Personnel.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('personnel_edit', { 'id': passager_Personnel.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('personnel_new') }}">Create a new passager_Personnel</a>
+        </li>
+    </ul>
+{% endblock %}

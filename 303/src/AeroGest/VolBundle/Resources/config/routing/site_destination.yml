@@ -1,0 +1,24 @@
+destinations_index:
+    path:     /
+    defaults: { _controller: "AeroGestVolBundle:Site_Destination:index" }
+    methods:  GET
+
+destinations_show:
+    path:     /{id}/show
+    defaults: { _controller: "AeroGestVolBundle:Site_Destination:show" }
+    methods:  GET
+
+destinations_new:
+    path:     /new
+    defaults: { _controller: "AeroGestVolBundle:Site_Destination:new" }
+    methods:  [GET, POST]
+
+destinations_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AeroGestVolBundle:Site_Destination:edit" }
+    methods:  [GET, POST]
+
+destinations_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AeroGestVolBundle:Site_Destination:delete" }
+    methods:  DELETE

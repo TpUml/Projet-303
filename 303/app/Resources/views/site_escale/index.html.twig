@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Site_escales list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dateescale</th>
+                <th>Motif</th>
+                <th>Datedepart</th>
+                <th>Code</th>
+                <th>Ville</th>
+                <th>Statut</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for site_Escale in site_Escales %}
+            <tr>
+                <td><a href="{{ path('escales_show', { 'id': site_Escale.id }) }}">{{ site_Escale.id }}</a></td>
+                <td>{% if site_Escale.dateEscale %}{{ site_Escale.dateEscale|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ site_Escale.motif }}</td>
+                <td>{% if site_Escale.dateDepart %}{{ site_Escale.dateDepart|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ site_Escale.code }}</td>
+                <td>{{ site_Escale.ville }}</td>
+                <td>{{ site_Escale.statut }}</td>
+                <td>{% if site_Escale.createdAt %}{{ site_Escale.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if site_Escale.updatedAt %}{{ site_Escale.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ site_Escale.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('escales_show', { 'id': site_Escale.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('escales_edit', { 'id': site_Escale.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('escales_new') }}">Create a new site_Escale</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,24 @@
+bagages_index:
+    path:     /
+    defaults: { _controller: "AeroGestVolBundle:Paquet_Bagage:index" }
+    methods:  GET
+
+bagages_show:
+    path:     /{id}/show
+    defaults: { _controller: "AeroGestVolBundle:Paquet_Bagage:show" }
+    methods:  GET
+
+bagages_new:
+    path:     /new
+    defaults: { _controller: "AeroGestVolBundle:Paquet_Bagage:new" }
+    methods:  [GET, POST]
+
+bagages_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AeroGestVolBundle:Paquet_Bagage:edit" }
+    methods:  [GET, POST]
+
+bagages_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AeroGestVolBundle:Paquet_Bagage:delete" }
+    methods:  DELETE

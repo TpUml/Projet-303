@@ -1,0 +1,24 @@
+compagnie_index:
+    path:     /
+    defaults: { _controller: "AeroGestVolBundle:Compagnie:index" }
+    methods:  GET
+
+compagnie_show:
+    path:     /{id}/show
+    defaults: { _controller: "AeroGestVolBundle:Compagnie:show" }
+    methods:  GET
+
+compagnie_new:
+    path:     /new
+    defaults: { _controller: "AeroGestVolBundle:Compagnie:new" }
+    methods:  [GET, POST]
+
+compagnie_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AeroGestVolBundle:Compagnie:edit" }
+    methods:  [GET, POST]
+
+compagnie_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AeroGestVolBundle:Compagnie:delete" }
+    methods:  DELETE

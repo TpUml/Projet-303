@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Paquet_colis list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Villeexpedition</th>
+                <th>Villedestination</th>
+                <th>Fraisenvoi</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for paquet_Coli in paquet_Colis %}
+            <tr>
+                <td><a href="{{ path('colis_show', { 'id': paquet_Coli.id }) }}">{{ paquet_Coli.id }}</a></td>
+                <td>{{ paquet_Coli.villeExpedition }}</td>
+                <td>{{ paquet_Coli.villeDestination }}</td>
+                <td>{{ paquet_Coli.fraisEnvoi }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('colis_show', { 'id': paquet_Coli.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('colis_edit', { 'id': paquet_Coli.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('colis_new') }}">Create a new paquet_Coli</a>
+        </li>
+    </ul>
+{% endblock %}

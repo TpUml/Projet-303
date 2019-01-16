@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tier_destinataires list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dateretrait</th>
+                <th>Validerreciever</th>
+                <th>Passwordretrait</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tier_Destinataire in tier_Destinataires %}
+            <tr>
+                <td><a href="{{ path('destinataires_show', { 'id': tier_Destinataire.id }) }}">{{ tier_Destinataire.id }}</a></td>
+                <td>{% if tier_Destinataire.dateRetrait %}{{ tier_Destinataire.dateRetrait|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if tier_Destinataire.validerReciever %}Yes{% else %}No{% endif %}</td>
+                <td>{{ tier_Destinataire.passwordRetrait }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('destinataires_show', { 'id': tier_Destinataire.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('destinataires_edit', { 'id': tier_Destinataire.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('destinataires_new') }}">Create a new tier_Destinataire</a>
+        </li>
+    </ul>
+{% endblock %}

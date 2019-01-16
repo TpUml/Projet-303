@@ -1,0 +1,24 @@
+clients_index:
+    path:     /
+    defaults: { _controller: "AeroGestVolBundle:Passager_Client:index" }
+    methods:  GET
+
+clients_show:
+    path:     /{id}/show
+    defaults: { _controller: "AeroGestVolBundle:Passager_Client:show" }
+    methods:  GET
+
+clients_new:
+    path:     /new
+    defaults: { _controller: "AeroGestVolBundle:Passager_Client:new" }
+    methods:  [GET, POST]
+
+clients_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AeroGestVolBundle:Passager_Client:edit" }
+    methods:  [GET, POST]
+
+clients_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AeroGestVolBundle:Passager_Client:delete" }
+    methods:  DELETE

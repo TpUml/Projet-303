@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Paquet_bagages list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nature</th>
+                <th>Privatenote</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for paquet_Bagage in paquet_Bagages %}
+            <tr>
+                <td><a href="{{ path('bagages_show', { 'id': paquet_Bagage.id }) }}">{{ paquet_Bagage.id }}</a></td>
+                <td>{{ paquet_Bagage.nature }}</td>
+                <td>{{ paquet_Bagage.privateNote }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('bagages_show', { 'id': paquet_Bagage.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('bagages_edit', { 'id': paquet_Bagage.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('bagages_new') }}">Create a new paquet_Bagage</a>
+        </li>
+    </ul>
+{% endblock %}

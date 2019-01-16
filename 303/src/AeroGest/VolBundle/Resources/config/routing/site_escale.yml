@@ -1,0 +1,24 @@
+escales_index:
+    path:     /
+    defaults: { _controller: "AeroGestVolBundle:Site_Escale:index" }
+    methods:  GET
+
+escales_show:
+    path:     /{id}/show
+    defaults: { _controller: "AeroGestVolBundle:Site_Escale:show" }
+    methods:  GET
+
+escales_new:
+    path:     /new
+    defaults: { _controller: "AeroGestVolBundle:Site_Escale:new" }
+    methods:  [GET, POST]
+
+escales_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AeroGestVolBundle:Site_Escale:edit" }
+    methods:  [GET, POST]
+
+escales_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AeroGestVolBundle:Site_Escale:delete" }
+    methods:  DELETE

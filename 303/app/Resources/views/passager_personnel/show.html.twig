@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Passager_personnel</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ passager_Personnel.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ passager_Personnel.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ passager_Personnel.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ passager_Personnel.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{% if passager_Personnel.dateNaissance %}{{ passager_Personnel.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ passager_Personnel.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ passager_Personnel.description }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ passager_Personnel.ville }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ passager_Personnel.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ passager_Personnel.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if passager_Personnel.createdAt %}{{ passager_Personnel.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if passager_Personnel.updatedAt %}{{ passager_Personnel.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ passager_Personnel.statut }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('personnel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('personnel_edit', { 'id': passager_Personnel.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

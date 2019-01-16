@@ -1,0 +1,24 @@
+colis_index:
+    path:     /
+    defaults: { _controller: "AeroGestVolBundle:Paquet_Colis:index" }
+    methods:  GET
+
+colis_show:
+    path:     /{id}/show
+    defaults: { _controller: "AeroGestVolBundle:Paquet_Colis:show" }
+    methods:  GET
+
+colis_new:
+    path:     /new
+    defaults: { _controller: "AeroGestVolBundle:Paquet_Colis:new" }
+    methods:  [GET, POST]
+
+colis_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AeroGestVolBundle:Paquet_Colis:edit" }
+    methods:  [GET, POST]
+
+colis_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AeroGestVolBundle:Paquet_Colis:delete" }
+    methods:  DELETE

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Vol</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vol.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ vol.code }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ vol.type }}</td>
+            </tr>
+            <tr>
+                <th>Debut</th>
+                <td>{% if vol.debut %}{{ vol.debut|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fin</th>
+                <td>{% if vol.fin %}{{ vol.fin|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ vol.statut }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if vol.createdAt %}{{ vol.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if vol.updatedAt %}{{ vol.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('vol_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('vol_edit', { 'id': vol.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

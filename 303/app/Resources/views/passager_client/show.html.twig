@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Passager_client</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ passager_Client.id }}</td>
+            </tr>
+            <tr>
+                <th>Passport</th>
+                <td>{{ passager_Client.passport }}</td>
+            </tr>
+            <tr>
+                <th>Visa</th>
+                <td>{{ passager_Client.visa }}</td>
+            </tr>
+            <tr>
+                <th>Billetavion</th>
+                <td>{{ passager_Client.billetAvion }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ passager_Client.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ passager_Client.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ passager_Client.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{% if passager_Client.dateNaissance %}{{ passager_Client.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ passager_Client.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ passager_Client.description }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ passager_Client.ville }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ passager_Client.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ passager_Client.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if passager_Client.createdAt %}{{ passager_Client.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if passager_Client.updatedAt %}{{ passager_Client.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ passager_Client.statut }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('clients_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('clients_edit', { 'id': passager_Client.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

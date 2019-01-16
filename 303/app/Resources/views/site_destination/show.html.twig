@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Site_destination</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ site_Destination.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ site_Destination.code }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ site_Destination.ville }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ site_Destination.statut }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if site_Destination.createdAt %}{{ site_Destination.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if site_Destination.updatedAt %}{{ site_Destination.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ site_Destination.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('destinations_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('destinations_edit', { 'id': site_Destination.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

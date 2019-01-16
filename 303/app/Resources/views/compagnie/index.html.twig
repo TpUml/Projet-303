@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <body>
+        <br /><h1>Compagnies aériennes du Système</h1>
+        <div class="table-striped">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Code</th>
+                    <th>Libelle</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Ville</th>
+                    <th>Statut</th>
+                    <th>Createdat</th>
+                    <th>Updatedat</th>
+                    <th>Isvisible</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for compagnie in compagnies %}
+                    <tr>
+                        <td><a href="{{ path('compagnie_show', { 'id': compagnie.id }) }}">{{ compagnie.id }}</a></td>
+                        <td>{{ compagnie.code }}</td>
+                        <td>{{ compagnie.libelle }}</td>
+                        <td>{{ compagnie.type }}</td>
+                        <td>{{ compagnie.description }}</td>
+                        <td>{{ compagnie.ville }}</td>
+                        <td>{{ compagnie.statut }}</td>
+                        <td>{% if compagnie.createdAt %}{{ compagnie.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if compagnie.updatedAt %}{{ compagnie.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if compagnie.isVisible %}Yes{% else %}No{% endif %}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('compagnie_show', { 'id': compagnie.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('compagnie_edit', { 'id': compagnie.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <ul>
+        <li>
+            <a href="{{ path('compagnie_new') }}">Create a new compagnie</a>
+        </li>
+    </ul>
+{% endblock %}

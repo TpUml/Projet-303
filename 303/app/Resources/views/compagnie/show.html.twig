@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Compagnie</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compagnie.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ compagnie.code }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ compagnie.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ compagnie.type }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ compagnie.description }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ compagnie.ville }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ compagnie.statut }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if compagnie.createdAt %}{{ compagnie.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if compagnie.updatedAt %}{{ compagnie.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Isvisible</th>
+                <td>{% if compagnie.isVisible %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('compagnie_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('compagnie_edit', { 'id': compagnie.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

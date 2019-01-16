@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <body>
+        <br />
+        <h1>Liste des Vols du Système</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Code</th>
+                        <th>Type</th>
+                        <th>Debut</th>
+                        <th>Fin</th>
+                        <th>Statut</th>
+                        <th>Createdat</th>
+                        <th>Updatedat</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+            <tbody>
+            {% for vol in vols %}
+                <tr>
+                    <td><a href="{{ path('vol_show', { 'id': vol.id }) }}">{{ vol.id }}</a></td>
+                    <td>{{ vol.code }}</td>
+                    <td>{{ vol.type }}</td>
+                    <td>{% if vol.debut %}{{ vol.debut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if vol.fin %}{{ vol.fin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ vol.statut }}</td>
+                    <td>{% if vol.createdAt %}{{ vol.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if vol.updatedAt %}{{ vol.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('vol_show', { 'id': vol.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('vol_edit', { 'id': vol.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+        <ul>
+            <li>
+                <a href="{{ path('vol_new') }}">Create a new vol</a>
+            </li>
+        </ul>
+    </body>
+{% endblock %}

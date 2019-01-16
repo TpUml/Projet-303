@@ -1,0 +1,22 @@
+{% extends "@FOSUser/layout.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h1>Enregistrement</h1>
+    </div>
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+    <div class="signin-rit">
+        <a href="{{path('fos_user_security_login')}}">Se Connecter |</a>
+        <div class="clearfix"> </div>
+    </div>
+
+{% endblock  %}

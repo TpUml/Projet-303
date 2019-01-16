@@ -1,0 +1,59 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block fos_user_content %}    
+    {% if error %}
+        <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <body class="sign-in-up">
+        <section>
+            <div id="page-wrapper" class="sign-in-wrapper">
+                <div class="graph">
+                    <div class="sign-in-form">
+			<div class="sign-in-form-top">
+                            <p><span>Administration</span> <a href="index.html"></a></p>
+                        </div>
+                        <div class="signin">
+                            <br />
+                            <form action="{{ path("fos_user_security_check") }}" method="post">
+                                {% if csrf_token %}
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                {% endif %}
+                                 <div class="log-input">
+                                    <div class="log-input-left">
+                                        <input type="text" id="username" class="user" name="_username" value="{{ last_username }}" 
+                                                onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Adresse e-mail:';}"
+                                                placeholder="{{ 'security.login.username'|trans }}"   required="required" autocomplssete="username"/>
+                                    </div>				
+                                    <div class="clearfix"> </div>
+                                </div>
+                                
+                                <div class="log-input">
+                                    <div class="log-input-left">
+                                        <input type="password" id="password" name="_password" class="lock" value="password" 
+                                            onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"
+                                            placeholder="{{ 'security.login.password'|trans }}" required="required" autocomplete="current-password"/>
+                                    </div>				
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <input type="submit" id="_submit" class="btn btn-primary btn-lg btn-block"  name="_submit" value="{{ 'security.login.submit'|trans }}" /><br />
+                                 <div class="signin-rit">
+                                    <a href="{{path('fos_user_registration_register')}}">Créer un Compte |</a>
+                                    <a href="{{ path('fos_user_resetting_request') }}">Mot de Passe Oublié?</a>
+                                    <div class="clearfix"> </div>
+                                 </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>Copyright Eagle Vision<a href="https://www.eaglevision.com" target="_blank"></a></p>
+            </footer>
+        </section>            
+    </body>
+
+{% endblock fos_user_content %}
